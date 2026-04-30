@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const p = pages[slug]
   if (!p) return {}
-  return { title: p.meta.title, description: p.meta.description, keywords: p.meta.keywords, alternates: { canonical: `https://www.tunee.ai/ai-character/${slug}` } }
+  return { title: p.meta.title, description: p.meta.description, keywords: p.meta.keywords, alternates: { canonical: `https://www.tunee.ai/ja/${slug}` } }
 }
 
 const themes = {
@@ -32,7 +32,6 @@ export default async function CharacterPage({ params }: Props) {
 
   return (
     <div className={`${t.bg} ${t.text} min-h-screen`}>
-      {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-3 flex items-center justify-between ${t.headerBg} backdrop-blur-xl border-b ${isLight ? "border-black/5" : "border-white/5"}`}>
         <a href="https://www.tunee.ai" className={`text-xl font-bold ${hc}`}>Tunee<span style={{color:t.accent}}>.</span></a>
         <nav className="flex items-center gap-5">
@@ -44,7 +43,6 @@ export default async function CharacterPage({ params }: Props) {
         </nav>
       </header>
 
-      {/* Hero */}
       <section className="min-h-screen flex items-center justify-center text-center px-6 md:px-16 pt-28 pb-20 relative overflow-hidden">
         {!isLight && <div className="absolute inset-0 pointer-events-none" style={{background:`radial-gradient(ellipse at 50% 40%,${t.accent}10,transparent 65%)`}}/>}
         <div className="max-w-2xl mx-auto relative z-10">
@@ -59,7 +57,6 @@ export default async function CharacterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Characters with CTA */}
       <section className="px-6 md:px-16 py-20">
         <div className="max-w-5xl mx-auto">
           <p className="text-[11px] uppercase tracking-widest font-semibold mb-2 text-center" style={{color:t.accent}}>キャラクターショーケース</p>
@@ -75,9 +72,7 @@ export default async function CharacterPage({ params }: Props) {
                 <div className="p-3.5">
                   <h4 className={`text-sm font-bold ${hc} mb-0.5`}>{d.name}</h4>
                   <p className={`text-[11px] ${t.muted} mb-2.5`}>{d.sub}</p>
-                  <a href="https://www.tunee.ai/sign-up" className={`block text-center text-xs font-semibold py-2 rounded-lg transition-all ${t.cardCta}`}>
-                    このキャラを作る →
-                  </a>
+                  <a href="https://www.tunee.ai/sign-up" className={`block text-center text-xs font-semibold py-2 rounded-lg transition-all ${t.cardCta}`}>このキャラを作る →</a>
                 </div>
               </div>
             ))}
@@ -85,7 +80,6 @@ export default async function CharacterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Steps */}
       <section className={`px-6 md:px-16 py-20 ${isLight?"bg-[#FFF8EE]":t.cardBg}`}>
         <div className="max-w-4xl mx-auto">
           <p className="text-[11px] uppercase tracking-widest font-semibold mb-2 text-center" style={{color:t.accent}}>使い方</p>
@@ -102,7 +96,6 @@ export default async function CharacterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* MV Prompts */}
       <section className="px-6 md:px-16 py-20">
         <div className="max-w-4xl mx-auto">
           <p className="text-[11px] uppercase tracking-widest font-semibold mb-2 text-center" style={{color:t.accent}}>MVプロンプト</p>
@@ -121,7 +114,6 @@ export default async function CharacterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className={`px-6 md:px-16 py-24 text-center ${isLight?"bg-[#1C1917] text-[#FDFAF5]":""}`}>
         <div className="max-w-2xl mx-auto">
           <h2 className={`text-3xl md:text-4xl font-extrabold ${isLight?"text-white":hc} mb-4`}>{p.finalCtaTitle}</h2>
@@ -130,12 +122,10 @@ export default async function CharacterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* SEO */}
       <section className="px-6 md:px-16 py-10 max-w-3xl mx-auto">
         <p className={`text-xs ${isLight?"text-gray-400":"text-gray-600"} leading-loose`}>{p.seoText}</p>
       </section>
 
-      {/* Footer */}
       <footer className={`px-6 md:px-10 py-8 border-t ${isLight?"border-black/5":"border-white/5"} flex flex-col md:flex-row justify-between items-start gap-4`}>
         <div className="flex flex-col gap-2">
           <a href="https://www.tunee.ai" className={`text-base font-bold ${hc}`}>Tunee<span style={{color:t.accent}}>.</span></a>
