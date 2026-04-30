@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const p = pages[slug]
   if (!p) return {}
-  return { title: p.meta.title, description: p.meta.description, keywords: p.meta.keywords, alternates: { canonical: `https://www.tunee.ai/ja/${slug}` } }
+  return { title: p.meta.title, description: p.meta.description, keywords: p.meta.keywords, alternates: { canonical: `https://www.tunee.ai/ja/ai-character/${slug}` } }
 }
 
 const themes = {

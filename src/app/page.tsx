@@ -1,2 +1,2 @@
 import { redirect } from "next/navigation"
-export default function Home() { redirect("/ai-singer") }
+export default function Home() { redirect("/ai-character/ai-singer") }
